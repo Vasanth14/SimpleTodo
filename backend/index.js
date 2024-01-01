@@ -2,8 +2,10 @@ const express = require("express");
 const { createTodo, updateTodo } = require("./types");
 const {todo} = require('./db')
 const app = express();
+const cors = require('cors')
 
 app.use(express.json());
+app.use(cors())
 
 app.post("/todo", async function(req, res) {
     const createPayload = req.body;
@@ -51,6 +53,6 @@ app.put("/completed", async function(req, res) {
     })
 })
 
-app.listen(3001, () => {
-    console.log(`Server is listening on port 3001`)
+app.listen(3000, () => {
+    console.log(`Server is listening on port 3000`)
 })
